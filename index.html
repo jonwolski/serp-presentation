@@ -163,21 +163,33 @@ Doing the same thing over and over again and expecting <strong>the same</strong>
                 </section>
                 <section>
                     <section>
+<h1>SRP</h1>
                         <h2 style="
     text-transform: none;
-">Single Responsibility Principle<br>SRP</h2>
-                        <div>
-                            <br>
-                        </div>
-                        <div>
-                            <br>
-                        </div>
-                        <div>A unit of code should do one thing <br>and do it well</div>
+">Single Responsibility Principle</h2>
+<div><br /></div>
+                        <blockquote>A unit of code should do one thing <br>and do it well</blockquote>
                     </section>
                     <section>
                         <h2>Example</h2>
                         <div>
-                            <br>
+                            <pre><code class="javascript">
+  function calculate_tax_and_shipping(
+      line_item, shipping_address, billing_address ) {
+    
+       var tax_amount = 
+             line_item.price *
+             line_item.qty * 
+             get_tax_rate_for_state( billing_address.state );
+
+       var shipping_amount = 
+             calculate_shipping_rate( 
+               line_item.weight,
+               line_item.qty,
+               shipping_address
+             );
+  } 
+</code></pre>
                         </div>
                     </section>
                 </section>
