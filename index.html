@@ -1,0 +1,230 @@
+<!doctype html>  
+<html lang="en">
+	
+	<head>
+		<meta charset="utf-8">
+		
+		<title>reveal.js - The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		
+		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+		
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/wood.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	
+	<body>
+		
+		<div class="reveal">
+<div class="slides">
+    <section>
+        <h1 style="text-transform: none;">SeRP</h1>
+        <p>The Single <i>Essential</i> Responsibility Principle</p>
+        <p> </p>
+
+    <p>Jon Wolski</p>
+</section>
+<section>
+    <section>
+        <h2>Jon Wolski</h2>
+        <p>DaveRamsey.com</p>
+        <img src="http://www.developwithpurpose.com/wp-content/themes/einstein/library/scripts/thumb/thumb.php?src=http://www.developwithpurpose.com/wp-content/gallery/dr-screenshots/1-home-page-new.png&amp;w=660&amp;h=400&amp;a=t">
+        <br>
+    </section>
+    <section>
+        <h2>Jon Wolski</h2>
+        <p>DevelopWithPurpose.com</p>
+        <img src="http://i.imgur.com/CNxVS.png">
+    </section>
+    <section>
+        <h2>Jon Wolski</h2>
+<div style="margin-top: 0.5em;">
+<p>
+<span style="font-size: 1.8em;">I
+<span style="color: rgb(221,0,0);font-size: 1.1em;">♥</span>
+    </span>
+<br>
+DESIGN
+
+</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+</section>
+<section>
+    <h2>Overview</h2>
+<ul>
+<li>System Rot<br>
+</li>
+<li>Single Responsibility Principle<br>
+</li>
+<li>Single&nbsp;<em style="font: inherit; ">Essential</em>&nbsp;Responsibility Principle<br>
+</li>
+</ul>
+
+<p>First, a little foundation…</p>
+
+
+
+
+
+
+</section>
+    <section>
+        <section>
+            <h2>What is Essential?</h2>
+            <div>
+                <img src="http://photos.natuba.com/OyowJ2qOSHCXH4km2UyxVw.jpg?h=500&amp;w=500&amp;v=1217003257">
+                <br>
+            </div>
+        </section>
+        <section>
+            <h2>Accidents <font face="georgia">&amp;</font> Essence</h2>
+            <div>
+                <img src="http://upload.wikimedia.org/wikipedia/en/f/fd/Mythical_man-month_%28book_cover%29.jpg">
+                <br>
+            </div>
+        </section>
+        <section>
+            <h2>Accidents <font face="georgia">&amp;</font> Essence</h2>
+            <div>
+                <img src="http://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Aristotle_Altemps_Inv8575.jpg/448px-Aristotle_Altemps_Inv8575.jpg">
+                <br>
+            </div>
+        </section>
+        <section>
+            <h2>Essence</h2>
+            <div>
+                <br>
+            </div>
+            <div>&nbsp;the difficulties inherent in the nature of software&nbsp;<br>
+            </div>
+        </section>
+        <section>
+            <h2>Accidents</h2>
+            <div>those difficulties that today attend software production but are not inherent.<br>
+            </div>
+            <div>
+                <br>
+            </div>
+            <div>"incidental"</div>
+        </section>
+    </section>
+    <section>
+        <section>
+            <h1>System Rot</h1>
+<p>Can software go bad?</p>
+<p>
+<q>It's code; it doesn't change unless you change it.</q>
+</p>
+</section>
+            <section>
+                <h1>Insanity</h1>
+<blockquote>Doing the same thing over and over again and expecting a <strong>different</strong> result</blockquote>
+
+</section>
+                <section>
+                    <h2>
+        </h2>
+<h1>STUPIDITY</h1>
+
+<blockquote>
+Doing the same thing over and over again and expecting <strong>the same</strong> result
+</blockquote>
+
+
+</section>
+                    <section>
+                        <h1>Context<br>Changes</h1>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2 style="
+    text-transform: none;
+">Single Responsibility Principle<br>SRP</h2>
+                        <div>
+                            <br>
+                        </div>
+                        <div>
+                            <br>
+                        </div>
+                        <div>A unit of code should do one thing <br>and do it well</div>
+                    </section>
+                    <section>
+                        <h2>Example</h2>
+                        <div>
+                            <br>
+                        </div>
+                    </section>
+                </section>
+            </div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+			
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'lib/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'lib/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/zoom-js/zoom.js', condition: function() { return !!document.body.classList; } },
+					{ src: '/socket.io/socket.io.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } },
+					{ src: 'plugin/speakernotes/client.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } }
+				]
+			});
+			
+		</script>
+
+	</body>
+</html>
