@@ -82,6 +82,7 @@ background: #121513 url(wood-simple-and-beautifull-texture-1391578.jpg) repeat-x
 					0 20px 20px rgba(0,0,0,.15);
 }
 
+.reveal section li { margin: 1em auto; }
 
 /*********************************************
  * LINKS
