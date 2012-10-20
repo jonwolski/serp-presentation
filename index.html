@@ -4,15 +4,17 @@
 	<head>
 		<meta charset="utf-8">
 		
-		<title>reveal.js - The HTML Presentation Framework</title>
+		<title>The Single Essential Responsibility Principle</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+		<meta name="description" content="SRP is a vitamin for the health of your code. Just enough keeps you healthy. Too much can harm you.">
+		<meta name="author" content="Jon Wolski">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-		
+		<!--
 		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+-->
+		<link href='css/fonts.css' rel='stylesheet' type='text/css'>
 		
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/wood.css" id="theme">
@@ -45,13 +47,13 @@
     <section>
         <h2>Jon Wolski</h2>
         <p>DaveRamsey.com</p>
-        <img src="http://www.developwithpurpose.com/wp-content/themes/einstein/library/scripts/thumb/thumb.php?src=http://www.developwithpurpose.com/wp-content/gallery/dr-screenshots/1-home-page-new.png&amp;w=660&amp;h=400&amp;a=t">
+        <img src="lib/img/dr.com.png">
         <br>
     </section>
     <section>
         <h2>Jon Wolski</h2>
         <p>DevelopWithPurpose.com</p>
-        <img src="http://i.imgur.com/CNxVS.png">
+        <img src="lib/img/dev_with_purpose.png">
     </section>
     <section>
         <h2>Jon Wolski</h2>
@@ -105,21 +107,21 @@ DESIGN
         <section>
             <h2>What is Essential?</h2>
             <div>
-                <img src="http://photos.natuba.com/OyowJ2qOSHCXH4km2UyxVw.jpg?h=500&amp;w=500&amp;v=1217003257">
+                <img src="lib/img/OyowJ2qOSHCXH4km2UyxVw.jpg">
                 <br>
             </div>
         </section>
         <section>
             <h2>Accidents <font face="georgia">&amp;</font> Essence</h2>
             <div>
-                <img src="http://upload.wikimedia.org/wikipedia/en/f/fd/Mythical_man-month_%28book_cover%29.jpg">
+                <img src="lib/img/Mythical_man-month_%28book_cover%29.jpg">
                 <br>
             </div>
         </section>
         <section>
             <h2>Accidents <font face="georgia">&amp;</font> Essence</h2>
             <div>
-                <img src="http://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Aristotle_Altemps_Inv8575.jpg/448px-Aristotle_Altemps_Inv8575.jpg">
+                <img src="lib/img/Aristotle_Altemps_Inv8575.jpg">
                 <br>
             </div>
         </section>
@@ -182,17 +184,128 @@ Doing the same thing over and over again and expecting <strong>the same</strong>
              line_item.qty * 
              get_tax_rate_for_state( billing_address.state );
 
-       var shipping_amount = 
-             calculate_shipping_rate( 
+       var shipping_amount = calculate_shipping_rate( 
                line_item.weight,
                line_item.qty,
                shipping_address
              );
+       return tax_amount + shipping_amount;
   } 
 </code></pre>
                         </div>
                     </section>
+<section>
+                        <h2>Example</h2>
+                        <div>
+                            <pre><code class="javascript">
+  function calculate_shipping( line_item, shipping_address ) {
+			return calculate_shipping_rate( 
+				 line_item.weight,
+				 line_item.qty,
+				 shipping_address
+			);
+  }
+  
+  function calculate_tax( line_item, billing_address ) {
+	     return line_item.get_total() * 
+             get_tax_rate_for_state( billing_address.state );
+  } 
+
+</code></pre>
+                        </div>
+                    </section>
+<section>
+<h2> SRP restated </h2>
+<div><br/></div>
+<blockquote class="fragment">
+A unit of code should have only <strong>ONE</strong> reason to change
+</blockquote><br />
+<blockquote class="fragment">
+A change should only effect <strong>ONE</strong> unit of code
+</blockquote>
+</section>
                 </section>
+
+<section>
+<section>
+<h1>Why SERP?</h1>
+<h2>Where things go awry</h2>
+</section>
+<section>
+<h2>Explosion of parts</h2>
+<ul class="compact">
+  <li class="fragment">User</li>
+  <li class="fragment">UserModel</li>
+  <li class="fragment">UserBusinessObject</li>
+  <li class="fragment">UserService</li>
+  <li class="fragment">UserDAO</li>
+  <li class="fragment">UserValueObject</li>
+  <li class="fragment">UserSerializer</li>
+  <li class="fragment">UserManager</li>
+</ul>
+</section>
+<section>
+<h2>What is essential?</h2>
+<ul>
+<li>Persistence?</li>
+<li>Serialization?</li>
+<li>What are we <em>modeling</em>, anyway?</li>
+</ul>
+</section>
+
+</section>
+<section>
+<section>
+<h1>SERP</h1>
+<div><br></div>
+<blockquote>A unit of code should do <strong>ONE</strong> <strong>essential</strong> thing and do it completely.</blockquote>
+</section>
+<section>
+<h1>Torches Ready?</h1>
+<div><br></div>
+<blockquote class="fragment">A unit of code may handle accidentals to accomplish its one essential responsibility.</blockquote>
+</section>
+<section>
+<h2>Example: persistence</h2>
+<pre class="fragment"><code class="ruby">
+  class User <strong class="fragment">&lt; ActiveRecord::Base</strong>
+    <span class="fragment">has_many :accounts</span>
+
+    def someBusinessDomainMethods
+      &hellip;
+    end
+  end
+
+</code></pre>
+<p><br></p>
+<pre class="fragment"><code class="java">
+  <strong class="fragment">@entity</strong>
+  class Payment {
+    public someBusinessDomainMethods() {
+      &hellip;
+    }
+  }
+
+</code></pre>
+
+</section>
+</section>
+<section>
+<h1>Summary</h1>
+<ul>
+	<li class="fragment">Systems need maintenance due to changes of context</li>
+	<li class="fragment">Use SRP to keep your code healthy</li>
+	<li class="fragment">Distinguish between accidents and essence</li>
+</ul>
+</section>
+<section>
+<h1>Thank You</h1>
+<p><br />Jon Wolski <br />
+<a href="mailto:jon.wolski@daveramsey.com">jon.wolski@daveramsey.com</a><br/></p>
+<h3 style="text-transform: none; margin-top: 2em;"><a href="http://www.developwithpurpose.com/">DevelopWithPurpose.com</a></h3>
+</section>
+
+
             </div>
 
 		</div>
